@@ -1,0 +1,19 @@
+name: 'Setup conch action rust kit'
+description: 'Setup conch action rust kit'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+    - name: Setup Protoc
+      uses: Noelware/setup-protoc@1.0.2
+    - name: Cache Crates
+      uses: actions/cache@v3
+      with:
+        path: |
+          ./target
+          ~/.cargo
+        key: conch-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
+        restore-keys: |
+          conch-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
