@@ -12,8 +12,12 @@ runs:
       uses: actions/cache@v3
       with:
         path: |
-          ./target
-          ~/.cargo
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
         key: conch-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
         restore-keys: |
           conch-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
+          conch-${{ runner.os }}
