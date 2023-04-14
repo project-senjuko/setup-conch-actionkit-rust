@@ -7,7 +7,8 @@ runs:
       with:
         submodules: 'true'
     - name: Setup Protoc
-      uses: Noelware/setup-protoc@1.0.2
+      run: |
+        echo "~/ci/third_party/protoc-22.0-linux-x86_64/bin" >> $GITHUB_PATH
     - name: Cache Crates
       uses: actions/cache@v3
       with:
