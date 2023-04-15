@@ -7,6 +7,7 @@ runs:
       with:
         submodules: 'true'
     - name: Setup Protoc
+      shell: bash
       run: |
         echo "~/ci/third_party/protoc-22.0-linux-x86_64/bin" >> $GITHUB_PATH
     - name: Cache Crates
