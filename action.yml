@@ -9,7 +9,8 @@ runs:
     - name: Setup Protoc
       shell: bash
       run: |
-        echo "~/ci/third_party/protoc-22.0-linux-x86_64/bin" >> $GITHUB_PATH
+        sudo chmod 777 ${{ github.workspace }}/ci/third_party/protoc-22.0-linux-x86_64/bin/protoc
+        echo "PROTOC=${{ github.workspace }}/ci/third_party/protoc-22.0-linux-x86_64/bin/protoc" >> $GITHUB_ENV
     - name: Cache Crates
       uses: actions/cache@v3
       with:
